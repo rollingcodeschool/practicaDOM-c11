@@ -16,6 +16,18 @@ const cambiarTituloInnerHTML = ()=>{
     titulo.innerHTML = 'Soy un nuevo titulo realizado con <b>InnerHTML</b> 😎'
 }
 
+const ocultarParrafo = ()=>{
+    console.log('desde la funcion ocultarParrafo')
+    //buscar el parrafo
+    const parrafos = document.getElementsByTagName('p')
+    const btnOcultar = document.querySelector('.btn-danger')
+    console.log(parrafos[2])
+    //cambiar la clase d-none
+    parrafos[2].classList.add('d-none')
+    btnOcultar.textContent = 'Mostrar párrafo'
+
+}
+
 // const btnCambiarTitulo = document.getElementsByClassName('btn-outline-warning')
 const btnCambiarTitulo = document.querySelector('.btn-outline-warning')
 console.log(btnCambiarTitulo)
