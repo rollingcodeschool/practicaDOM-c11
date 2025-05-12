@@ -17,14 +17,17 @@ const cambiarTituloInnerHTML = ()=>{
 }
 
 const ocultarParrafo = ()=>{
-    console.log('desde la funcion ocultarParrafo')
     //buscar el parrafo
     const parrafos = document.getElementsByTagName('p')
     const btnOcultar = document.querySelector('.btn-danger')
-    console.log(parrafos[2])
-    //cambiar la clase d-none
-    parrafos[2].classList.add('d-none')
-    btnOcultar.textContent = 'Mostrar párrafo'
+    if(btnOcultar.textContent === 'Ocultar párrafo'){
+        //cambiar la clase d-none
+        parrafos[2].classList.add('d-none')
+        btnOcultar.textContent = 'Mostrar párrafo'
+    }else{
+        parrafos[2].classList.remove('d-none')
+        btnOcultar.textContent = 'Ocultar párrafo'
+    }
 
 }
 
