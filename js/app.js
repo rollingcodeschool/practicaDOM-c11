@@ -28,12 +28,27 @@ const ocultarParrafo = ()=>{
         parrafos[2].classList.remove('d-none')
         btnOcultar.textContent = 'Ocultar párrafo'
     }
-
 }
+
+const eliminarParrafo = ()=>{
+    console.log(' aqui deberia eliminar el parrafo')
+    if(borrarParrafo){
+        //buscar el parrafo
+        const parrafos = document.getElementsByTagName('p')
+        console.log(parrafos[3])
+        //luego indicar que se borre
+        parrafos[3].remove();
+        borrarParrafo=false
+        btnEliminarParrafo.classList.add('disabled')
+    }
+}
+
 
 // const btnCambiarTitulo = document.getElementsByClassName('btn-outline-warning')
 const btnCambiarTitulo = document.querySelector('.btn-outline-warning')
-console.log(btnCambiarTitulo)
+const btnEliminarParrafo = document.getElementById('btnEliminarParrafo')
+let borrarParrafo = true;
 
 //agregar un manejador de eventos
 btnCambiarTitulo.addEventListener('click', cambiarTituloInnerHTML)
+btnEliminarParrafo.addEventListener('click',eliminarParrafo)
