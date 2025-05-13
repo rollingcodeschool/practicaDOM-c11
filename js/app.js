@@ -45,17 +45,23 @@ const eliminarParrafo = () => {
 
 const mostrarNombre = (e) => {
   e.preventDefault();
-  console.log("aqui deberia mostrar un nombre");
-  console.log(e);
+  //buscar el input
+ const nombre = document.querySelector('#nombreInput')
+ console.log(nombre)
+  //extraer el texto
+  //buscar el span del parrafo
+  const spanNombre = document.querySelector('#nombreResultado');
+  //agregar el texto del input en el span del parrafo
+  spanNombre.textContent = nombre.value
 };
 
 // const btnCambiarTitulo = document.getElementsByClassName('btn-outline-warning')
 const btnCambiarTitulo = document.querySelector(".btn-outline-warning");
 const btnEliminarParrafo = document.getElementById("btnEliminarParrafo");
-// const formulario = document.getElementById("miFormulario");
+const formulario = document.getElementById("miFormulario");
 let borrarParrafo = true;
 
 //agregar un manejador de eventos
 btnCambiarTitulo.addEventListener("click", cambiarTituloInnerHTML);
 btnEliminarParrafo.addEventListener("click", eliminarParrafo);
-// formulario.addEventListener("submit", mostrarNombre);
+formulario.addEventListener("submit", mostrarNombre);
