@@ -55,13 +55,36 @@ const mostrarNombre = (e) => {
   spanNombre.textContent = nombre.value
 };
 
+const cambiarTema = ()=>{
+  console.log('aqui voy a cambiar el theme 🎨')
+  //traer la etiqueta html
+  const html = document.documentElement;
+  console.log(html.getAttribute('data-bs-theme')) 
+  //operador ternario
+  //(condicion)? que hago si es true: que hago si es false
+ if(html.getAttribute('data-bs-theme')==='dark'){
+    html.setAttribute('data-bs-theme','light')
+ }else{
+  html.setAttribute('data-bs-theme','dark')
+ }
+  // if(condicion){
+  //   que hago si es true
+  // }else{
+  //   que hago si es false
+  // }
+}
+
 // const btnCambiarTitulo = document.getElementsByClassName('btn-outline-warning')
 const btnCambiarTitulo = document.querySelector(".btn-outline-warning");
 const btnEliminarParrafo = document.getElementById("btnEliminarParrafo");
 const formulario = document.getElementById("miFormulario");
+const btnCambiarTema = document.getElementById('toggleThemeBtn')
 let borrarParrafo = true;
 
 //agregar un manejador de eventos
 btnCambiarTitulo.addEventListener("click", cambiarTituloInnerHTML);
 btnEliminarParrafo.addEventListener("click", eliminarParrafo);
 formulario.addEventListener("submit", mostrarNombre);
+btnCambiarTema.addEventListener("click", cambiarTema);
+
+
