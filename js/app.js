@@ -46,39 +46,38 @@ const eliminarParrafo = () => {
 const mostrarNombre = (e) => {
   e.preventDefault();
   //buscar el input
- const nombre = document.querySelector('#nombreInput')
- console.log(nombre)
+  const nombre = document.querySelector("#nombreInput");
+  console.log(nombre);
   //extraer el texto
   //buscar el span del parrafo
-  const spanNombre = document.querySelector('#nombreResultado');
+  const spanNombre = document.querySelector("#nombreResultado");
   //agregar el texto del input en el span del parrafo
-  spanNombre.textContent = nombre.value
+  spanNombre.textContent = nombre.value;
 };
 
-const cambiarTema = ()=>{
-  console.log('aqui voy a cambiar el theme 🎨')
+const cambiarTema = () => {
+  console.log("aqui voy a cambiar el theme 🎨");
   //traer la etiqueta html
   const html = document.documentElement;
-  console.log(html.getAttribute('data-bs-theme')) 
+  console.log(html.getAttribute("data-bs-theme"));
+  //  if(html.getAttribute('data-bs-theme')==='dark'){
+  //     html.setAttribute('data-bs-theme','light')
+  //  }else{
+  //   html.setAttribute('data-bs-theme','dark')
+  //  }
   //operador ternario
   //(condicion)? que hago si es true: que hago si es false
- if(html.getAttribute('data-bs-theme')==='dark'){
-    html.setAttribute('data-bs-theme','light')
- }else{
-  html.setAttribute('data-bs-theme','dark')
- }
-  // if(condicion){
-  //   que hago si es true
-  // }else{
-  //   que hago si es false
-  // }
-}
+  const theme = (html.getAttribute("data-bs-theme") === "dark") ? "light" : "dark"
+  html.setAttribute("data-bs-theme",  theme );
+
+  // (html.getAttribute("data-bs-theme")=== 'dark')? html.setAttribute("data-bs-theme","light"):html.setAttribute("data-bs-theme","dark")
+};
 
 // const btnCambiarTitulo = document.getElementsByClassName('btn-outline-warning')
 const btnCambiarTitulo = document.querySelector(".btn-outline-warning");
 const btnEliminarParrafo = document.getElementById("btnEliminarParrafo");
 const formulario = document.getElementById("miFormulario");
-const btnCambiarTema = document.getElementById('toggleThemeBtn')
+const btnCambiarTema = document.getElementById("toggleThemeBtn");
 let borrarParrafo = true;
 
 //agregar un manejador de eventos
@@ -86,5 +85,3 @@ btnCambiarTitulo.addEventListener("click", cambiarTituloInnerHTML);
 btnEliminarParrafo.addEventListener("click", eliminarParrafo);
 formulario.addEventListener("submit", mostrarNombre);
 btnCambiarTema.addEventListener("click", cambiarTema);
-
-
