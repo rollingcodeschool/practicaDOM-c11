@@ -73,6 +73,21 @@ const cambiarTema = () => {
   // (html.getAttribute("data-bs-theme")=== 'dark')? html.setAttribute("data-bs-theme","light"):html.setAttribute("data-bs-theme","dark")
 };
 
+//agregar un li con innerHTML
+// const agregarTarea = (e)=>{
+//   e.preventDefault();
+//   // console.log(formularioTarea.children[0].children[0])
+//   //necesito tomar el texto del input
+//   const inputTarea = document.getElementById('tareaInput').value
+//   //necesito el ul padre para agregar un nuevo item hijo que es un li
+//   const lista = document.querySelector('.list-group')
+//   //necesito agregar un li con el texto del input
+//   lista.innerHTML += `<li class="list-group-item">${inputTarea}</li>`
+//   // lista.innerHTML =  lista.innerHTML + `<li class="list-group-item">${inputTarea}</li>`
+//   //limpiar el formulario
+//   formularioTarea.reset();
+// }
+// generar un li con createElement
 const agregarTarea = (e)=>{
   e.preventDefault();
   // console.log(formularioTarea.children[0].children[0])
@@ -81,8 +96,11 @@ const agregarTarea = (e)=>{
   //necesito el ul padre para agregar un nuevo item hijo que es un li
   const lista = document.querySelector('.list-group')
   //necesito agregar un li con el texto del input
-  lista.innerHTML += `<li class="list-group-item">${inputTarea}</li>`
-  // lista.innerHTML =  lista.innerHTML + `<li class="list-group-item">${inputTarea}</li>`
+  const li = document.createElement('li'); //<li></li>
+  li.textContent = inputTarea //<li>el texto del input</li>
+  li.classList.add('list-group-item')
+  //agregar el li a su padre
+  lista.appendChild(li)
   //limpiar el formulario
   formularioTarea.reset();
 }
