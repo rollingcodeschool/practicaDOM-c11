@@ -73,11 +73,26 @@ const cambiarTema = () => {
   // (html.getAttribute("data-bs-theme")=== 'dark')? html.setAttribute("data-bs-theme","light"):html.setAttribute("data-bs-theme","dark")
 };
 
+const agregarTarea = (e)=>{
+  e.preventDefault();
+  // console.log(formularioTarea.children[0].children[0])
+  //necesito tomar el texto del input
+  const inputTarea = document.getElementById('tareaInput').value
+  //necesito el ul padre para agregar un nuevo item hijo que es un li
+  const lista = document.querySelector('.list-group')
+  //necesito agregar un li con el texto del input
+  lista.innerHTML += `<li class="list-group-item">${inputTarea}</li>`
+  // lista.innerHTML =  lista.innerHTML + `<li class="list-group-item">${inputTarea}</li>`
+  //limpiar el formulario
+  formularioTarea.reset();
+}
+
 // const btnCambiarTitulo = document.getElementsByClassName('btn-outline-warning')
 const btnCambiarTitulo = document.querySelector(".btn-outline-warning");
 const btnEliminarParrafo = document.getElementById("btnEliminarParrafo");
 const formulario = document.getElementById("miFormulario");
 const btnCambiarTema = document.getElementById("toggleThemeBtn");
+const formularioTarea = document.getElementById('tareaForm');
 let borrarParrafo = true;
 
 //agregar un manejador de eventos
@@ -85,3 +100,4 @@ btnCambiarTitulo.addEventListener("click", cambiarTituloInnerHTML);
 btnEliminarParrafo.addEventListener("click", eliminarParrafo);
 formulario.addEventListener("submit", mostrarNombre);
 btnCambiarTema.addEventListener("click", cambiarTema);
+formularioTarea.addEventListener('submit', agregarTarea)
